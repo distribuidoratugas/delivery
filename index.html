@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#E8521A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tu Gas">
+<meta name="description" content="Distribuidora oficial Abastible y Gasco en Santiago. Pedidos online con entrega rápida.">
+<link rel="apple-touch-icon" href="https://i.postimg.cc/rsVD39sy/Logo_tu_gas.png">
+<title>Tu Gas — Tienda Online</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --fire:#E8521A; --fire-dk:#C43D0E; --fire-lt:#FF7043; --fire-pale:#FFF1EC;
+  --navy:#1A3A6B; --sky:#1A73E8; --dark:#0F172A; --dark2:#1E293B;
+  --surface:#F8F7F4; --card:#FFF; --border:#E2E8F0;
+  --text:#1E293B; --muted:#64748B;
+  --success:#22C55E; --warn:#F59E0B; --danger:#EF4444; --info:#06B6D4;
+  --r:12px; --r-lg:20px;
+  --shadow:0 4px 24px rgba(0,0,0,.09); --shadow-lg:0 20px 60px rgba(0,0,0,.16);
+  --safe-top:env(safe-area-inset-top,0px); --safe-bot:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--surface);color:var(--text);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer}
+input,select,textarea{font-family:inherit}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:var(--fire);border-radius:3px}
+
+/* ── NAVBAR ── */
+.navbar{position:sticky;top:0;z-index:900;background:rgba(15,23,42,.96);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);height:64px;padding:0 20px 0 16px;display:flex;align-items:center;gap:12px;box-shadow:0 1px 0 rgba(255,255,255,.06),0 4px 24px rgba(0,0,0,.25);padding-top:var(--safe-top)}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:1}
+.nav-logo{width:40px;height:40px;border-radius:50%;border:2px solid var(--fire);object-fit:cover;box-shadow:0 0 14px rgba(232,82,26,.5)}
+.nav-title{color:#fff;font-family:'Fraunces',serif;font-size:20px;line-height:1}
+.nav-title em{color:var(--fire-lt);font-style:normal}
+.nav-links{display:flex;gap:4px}
+.nav-link{color:rgba(255,255,255,.65);font-size:13px;font-weight:500;padding:7px 12px;border-radius:8px;cursor:pointer;transition:all .18s;white-space:nowrap}
+.nav-link:hover{color:#fff;background:rgba(255,255,255,.08)}
+@media(max-width:540px){.nav-links{display:none}}
+.cart-btn{position:relative;background:var(--fire);color:#fff;border:none;border-radius:10px;padding:9px 14px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:7px;transition:all .2s;flex-shrink:0}
+.cart-btn:hover{background:var(--fire-lt);transform:translateY(-1px);box-shadow:0 6px 18px rgba(232,82,26,.45)}
+.cart-badge{background:var(--warn);color:var(--dark);font-size:11px;font-weight:700;min-width:20px;height:20px;border-radius:10px;padding:0 5px;display:flex;align-items:center;justify-content:center;transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+.cart-badge.bump{transform:scale(1.4)}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(140deg,#0F172A 0%,#1A3A6B 55%,#0F2A4A 100%);padding:clamp(64px,10vw,120px) 20px clamp(52px,8vw,96px);text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 10%,rgba(232,82,26,.22) 0%,transparent 65%);pointer-events:none}
+.hero-inner{position:relative;max-width:720px;margin:0 auto}
+.hero-chip{display:inline-flex;align-items:center;gap:7px;background:rgba(232,82,26,.15);border:1px solid rgba(232,82,26,.4);color:var(--fire-lt);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:.4px;margin-bottom:22px}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(34px,7vw,66px);color:#fff;line-height:1.08;margin-bottom:16px}
+.hero h1 em{color:var(--fire-lt);font-style:normal}
+.hero-sub{color:rgba(255,255,255,.6);font-size:clamp(15px,2.5vw,18px);margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.65}
+.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-fire{background:linear-gradient(135deg,var(--fire),var(--fire-lt));color:#fff;border:none;border-radius:12px;padding:14px 32px;font-size:15px;font-weight:700;box-shadow:0 6px 24px rgba(232,82,26,.45);transition:all .25s}
+.btn-fire:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(232,82,26,.55)}
+.btn-ghost{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.22);color:#fff;border-radius:12px;padding:14px 32px;font-size:15px;font-weight:600;transition:all .25s}
+.btn-ghost:hover{border-color:var(--fire-lt);color:var(--fire-lt);background:rgba(232,82,26,.07)}
+.hero-stats{display:flex;gap:32px;justify-content:center;margin-top:52px;flex-wrap:wrap}
+.stat-num{font-family:'Fraunces',serif;font-size:30px;color:var(--fire-lt)}
+.stat-lbl{color:rgba(255,255,255,.45);font-size:12px;margin-top:2px}
+
+/* ── SECCIONES ── */
+.section{padding:clamp(48px,8vw,80px) 20px}
+.sec-white{background:#fff}
+.sec-dark{background:linear-gradient(140deg,var(--dark) 0%,var(--dark2) 100%)}
+.container{max-width:1160px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:44px}
+.sec-head h2{font-family:'Fraunces',serif;font-size:clamp(26px,4.5vw,42px);color:var(--text);margin-bottom:10px}
+.sec-dark .sec-head h2{color:#fff}
+.sec-head p{color:var(--muted);font-size:16px;max-width:480px;margin:0 auto}
+.sec-dark .sec-head p{color:rgba(255,255,255,.5)}
+.accent{color:var(--fire)}
+
+/* ── TABS ── */
+.tabs{display:flex;gap:10px;justify-content:center;margin-bottom:36px;flex-wrap:wrap}
+.tab{display:flex;align-items:center;gap:8px;padding:10px 22px;border-radius:50px;border:2px solid var(--border);background:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:all .22s;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.tab-ab{color:#C53030;border-color:#C53030}
+.tab-ab.active,.tab-ab:hover{background:#C53030;color:#fff;box-shadow:0 6px 20px rgba(197,48,48,.3)}
+.tab-gs{color:var(--sky);border-color:var(--sky)}
+.tab-gs.active,.tab-gs:hover{background:var(--sky);color:#fff;box-shadow:0 6px 20px rgba(26,115,232,.3)}
+.tab-all{color:var(--muted)}
+.tab-all.active,.tab-all:hover{background:var(--dark);color:#fff;border-color:var(--dark)}
+
+/* ── GRID PRODUCTOS ── */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(256px,1fr));gap:20px}
+.card{background:#fff;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);transition:transform .28s cubic-bezier(.34,1.56,.64,1),box-shadow .28s;display:flex;flex-direction:column;position:relative}
+.card:hover{transform:translateY(-7px);box-shadow:var(--shadow-lg)}
+.card-img-wrap{width:100%;aspect-ratio:4/3;position:relative;overflow:hidden}
+.card-img-wrap.ab{background:linear-gradient(135deg,#7f1d1d,#dc2626)}
+.card-img-wrap.gs{background:linear-gradient(135deg,var(--navy),var(--sky))}
+.card-img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.card:hover .card-img{transform:scale(1.06)}
+.card-img-fallback{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.card-img-fallback .kg{font-family:'Fraunces',serif;font-size:52px;color:rgba(255,255,255,.95);line-height:1}
+.card-img-fallback .kg-lbl{font-size:13px;color:rgba(255,255,255,.6);font-weight:500;letter-spacing:1px}
+.card-badge{position:absolute;top:10px;left:10px;background:var(--warn);color:var(--dark);padding:3px 9px;border-radius:6px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.card-marca-logo{position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,.35);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);padding:4px 8px;border-radius:6px;font-size:10px;font-weight:700;color:#fff;letter-spacing:.5px}
+.card-body{padding:18px 18px 20px;flex:1;display:flex;flex-direction:column}
+.card-name{font-weight:700;font-size:14px;color:var(--text);margin-bottom:6px;line-height:1.3}
+.card-desc{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-price{font-family:'Fraunces',serif;font-size:26px;color:var(--fire);margin-bottom:4px;line-height:1}
+.card-price-sub{font-size:11px;color:var(--muted);font-family:'Plus Jakarta Sans',sans-serif;margin-bottom:14px}
+
+/* ── QTY ── */
+.qty-row{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.qty-btn{width:34px;height:34px;border:1.5px solid var(--border);background:var(--surface);color:var(--text);border-radius:9px;font-size:18px;font-weight:600;display:flex;align-items:center;justify-content:center;transition:all .18s;flex-shrink:0}
+.qty-btn:hover{border-color:var(--fire);background:var(--fire);color:#fff}
+.qty-btn:disabled{opacity:.35;cursor:not-allowed}
+.qty-inp{width:48px;text-align:center;border:1.5px solid var(--border);border-radius:9px;padding:7px 4px;font-size:15px;font-weight:700;background:#fff;-moz-appearance:textfield}
+.qty-inp::-webkit-inner-spin-button{-webkit-appearance:none}
+.qty-inp:focus{outline:none;border-color:var(--fire)}
+.add-btn{width:100%;background:linear-gradient(135deg,var(--fire),var(--fire-lt));color:#fff;border:none;border-radius:10px;padding:12px;font-size:14px;font-weight:700;transition:all .22s;margin-top:auto}
+.add-btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 6px 18px rgba(232,82,26,.4)}
+.add-btn:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;transform:none;box-shadow:none}
+
+/* ── CARRITO DRAWER ── */
+.cart-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);visibility:hidden;opacity:0;transition:opacity .28s,visibility .28s}
+.cart-overlay.open{visibility:visible;opacity:1}
+.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100vw);z-index:1001;background:#fff;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);box-shadow:-8px 0 40px rgba(0,0,0,.2);padding-bottom:var(--safe-bot)}
+.cart-overlay.open .cart-drawer{transform:translateX(0)}
+.drawer-head{background:linear-gradient(135deg,var(--dark),var(--dark2));padding:20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.drawer-head h3{color:#fff;font-family:'Fraunces',serif;font-size:20px}
+.drawer-close{background:rgba(255,255,255,.1);border:none;color:#fff;width:34px;height:34px;border-radius:50%;font-size:17px;display:flex;align-items:center;justify-content:center;transition:background .18s}
+.drawer-close:hover{background:rgba(255,255,255,.2)}
+.drawer-items{flex:1;overflow-y:auto;padding:16px;overscroll-behavior:contain}
+.cart-empty-msg{text-align:center;padding:56px 20px;color:var(--muted)}
+.cart-empty-msg .ei{font-size:60px;margin-bottom:12px}
+
+/* ── ITEMS CARRITO ── */
+.cart-item{display:grid;grid-template-columns:48px 1fr auto;grid-template-rows:auto auto;column-gap:12px;row-gap:4px;align-items:start;padding:14px 0;border-bottom:1px solid #f1f5f9}
+.ci-icon{grid-column:1;grid-row:1/3;width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;align-self:center;position:relative;overflow:hidden}
+.ci-icon.ab{background:linear-gradient(135deg,#7f1d1d,#dc2626)}
+.ci-icon.gs{background:linear-gradient(135deg,var(--navy),var(--sky))}
+.ci-icon img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ci-name{grid-column:2;grid-row:1;font-weight:700;font-size:13px;color:var(--text);line-height:1.3}
+.ci-price-unit{font-size:12px;color:var(--muted);grid-column:2;grid-row:2;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ci-subtotal{grid-column:3;grid-row:1/3;font-weight:700;font-size:14px;color:var(--text);text-align:right;align-self:center;white-space:nowrap}
+.ci-controls{display:flex;align-items:center;gap:6px}
+.ci-qty-btn{width:24px;height:24px;border:1px solid var(--border);background:var(--surface);border-radius:6px;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.ci-qty-btn:hover{border-color:var(--fire);color:var(--fire);background:var(--fire-pale)}
+.ci-qty-num{font-weight:700;font-size:14px;min-width:20px;text-align:center}
+.ci-del{color:var(--danger);font-size:16px;margin-left:4px;line-height:1}
+.ci-del:hover{color:#b91c1c}
+
+/* ── DESCUENTO ── */
+.drawer-disc{padding:12px 16px;border-top:1px solid #f1f5f9;flex-shrink:0}
+.disc-row{display:flex;gap:8px}
+.disc-inp{flex:1;padding:10px 13px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;transition:border-color .18s;background:var(--surface)}
+.disc-inp:focus{outline:none;border-color:var(--fire);background:#fff}
+.disc-apply{background:var(--fire);color:#fff;border:none;border-radius:10px;padding:10px 14px;font-size:13px;font-weight:700;transition:background .18s}
+.disc-apply:hover{background:var(--fire-dk)}
+.disc-applied{display:flex;align-items:center;justify-content:space-between;background:#DCFCE7;padding:9px 13px;border-radius:10px;font-size:13px;font-weight:700;color:#166534}
+.disc-rm{background:none;border:none;color:var(--danger);font-size:16px}
+.disc-msg{font-size:12px;margin-top:5px}
+.disc-msg.err{color:var(--danger)}
+.disc-msg.ok{color:var(--success)}
+
+/* ── TOTALES ── */
+.drawer-foot{padding:16px 16px 14px;border-top:1px solid #f1f5f9;flex-shrink:0}
+.totals-grid{display:flex;flex-direction:column;gap:4px;margin-bottom:14px}
+.tot-line{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--muted)}
+.tot-line.disc-line{color:var(--success);font-weight:600}
+.tot-line.main{font-size:19px;font-weight:800;color:var(--text);border-top:1px solid var(--border);margin-top:6px;padding-top:10px}
+.checkout-btn{width:100%;background:linear-gradient(135deg,var(--fire),var(--fire-lt));color:#fff;border:none;border-radius:12px;padding:15px;font-size:15px;font-weight:800;box-shadow:0 6px 24px rgba(232,82,26,.45);transition:all .22s}
+.checkout-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 10px 32px rgba(232,82,26,.55)}
+.checkout-btn:disabled{background:var(--border);cursor:not-allowed;transform:none;box-shadow:none}
+
+/* ── MODAL ── */
+.modal-back{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);display:flex;align-items:flex-end;visibility:hidden;opacity:0;transition:opacity .28s,visibility .28s}
+@media(min-width:640px){.modal-back{align-items:center;justify-content:center}}
+.modal-back.open{visibility:visible;opacity:1}
+.modal{background:#fff;width:min(580px,100%);max-height:92vh;overflow-y:auto;border-radius:var(--r-lg) var(--r-lg) 0 0;box-shadow:var(--shadow-lg);transform:translateY(40px) scale(.97);transition:transform .3s cubic-bezier(.34,1.2,.64,1),opacity .3s;opacity:0;padding-bottom:var(--safe-bot)}
+@media(min-width:640px){.modal{border-radius:var(--r-lg)}}
+.modal-back.open .modal{transform:translateY(0) scale(1);opacity:1}
+.modal-head{background:linear-gradient(135deg,var(--dark),var(--dark2));padding:24px 24px 20px;display:flex;align-items:center;justify-content:space-between;border-radius:var(--r-lg) var(--r-lg) 0 0;position:sticky;top:0;z-index:10}
+.modal-head h3{color:#fff;font-family:'Fraunces',serif;font-size:21px}
+.modal-x{background:rgba(255,255,255,.1);border:none;color:#fff;width:34px;height:34px;border-radius:50%;font-size:16px;display:flex;align-items:center;justify-content:center}
+.modal-x:hover{background:rgba(255,255,255,.2)}
+.modal-body{padding:24px}
+.order-mini{background:var(--surface);border-radius:12px;padding:16px;margin-bottom:22px}
+.order-mini h4{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.mini-item{display:flex;justify-content:space-between;font-size:13px;padding:3px 0}
+.mini-total{display:flex;justify-content:space-between;font-size:16px;font-weight:800;color:var(--fire);border-top:1px solid var(--border);margin-top:10px;padding-top:10px}
+.form-grp{margin-bottom:17px}
+.form-lbl{display:block;font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px;text-transform:uppercase;letter-spacing:.6px}
+.form-inp,.form-sel,.form-ta{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:15px;background:#fff;color:var(--text);transition:border-color .18s,box-shadow .18s}
+.form-inp:focus,.form-sel:focus,.form-ta:focus{outline:none;border-color:var(--fire);box-shadow:0 0 0 3px rgba(232,82,26,.1)}
+.form-ta{resize:vertical;min-height:76px}
+.form-2col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:480px){.form-2col{grid-template-columns:1fr}}
+.pago-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+@media(max-width:380px){.pago-grid{grid-template-columns:1fr}}
+.pago-opt{position:relative}
+.pago-opt input{position:absolute;opacity:0;width:0;height:0}
+.pago-lbl{display:flex;align-items:center;gap:8px;padding:11px 13px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;font-size:13px;font-weight:600;color:var(--text);transition:all .18s}
+.pago-lbl:hover{border-color:var(--fire);background:var(--fire-pale)}
+.pago-opt input:checked+.pago-lbl{border-color:var(--fire);background:var(--fire-pale);color:var(--fire)}
+.submit-btn{width:100%;background:linear-gradient(135deg,var(--fire),var(--fire-lt));color:#fff;border:none;border-radius:12px;padding:15px;font-size:16px;font-weight:800;margin-top:8px;box-shadow:0 6px 24px rgba(232,82,26,.45);transition:all .22s}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(232,82,26,.55)}
+
+/* ── CONFIRMACIÓN ── */
+.confirm-screen{padding:40px 28px;text-align:center}
+.confirm-icon{font-size:72px;margin-bottom:16px;animation:pop .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes pop{0%{transform:scale(0)}100%{transform:scale(1)}}
+.confirm-screen h3{font-family:'Fraunces',serif;font-size:26px;color:var(--success);margin-bottom:10px}
+.confirm-screen p{color:var(--muted);font-size:14px;margin-bottom:7px;line-height:1.6}
+.confirm-id{font-size:24px;font-weight:800;color:var(--fire);letter-spacing:2px;margin:10px 0}
+
+/* ── MODAL ESTADO ── */
+.estado-modal-back{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;visibility:hidden;opacity:0;transition:opacity .25s,visibility .25s}
+.estado-modal-back.open{visibility:visible;opacity:1}
+.estado-modal{background:#fff;border-radius:var(--r-lg);width:min(500px,100%);box-shadow:var(--shadow-lg);transform:scale(.95);transition:transform .28s cubic-bezier(.34,1.2,.64,1),opacity .28s;opacity:0;overflow:hidden}
+.estado-modal-back.open .estado-modal{transform:scale(1);opacity:1}
+.estado-modal-head{background:linear-gradient(135deg,var(--navy),var(--sky));padding:24px;display:flex;align-items:center;justify-content:space-between}
+.estado-modal-head h3{color:#fff;font-family:'Fraunces',serif;font-size:20px}
+.estado-modal-body{padding:24px}
+.estado-info{background:var(--surface);border-radius:12px;padding:14px;margin-bottom:20px;font-size:13px;line-height:1.8}
+.estado-info strong{color:var(--text)}
+.estado-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.est-btn{padding:12px;border:2px solid transparent;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.est-btn-camino{border-color:var(--info);color:var(--info);background:rgba(6,182,212,.06)}
+.est-btn-camino:hover{background:var(--info);color:#fff}
+.est-btn-entregado{border-color:var(--success);color:var(--success);background:rgba(34,197,94,.06)}
+.est-btn-entregado:hover{background:var(--success);color:#fff}
+.est-btn-cancelado{border-color:var(--danger);color:var(--danger);background:rgba(239,68,68,.06)}
+.est-btn-cancelado:hover{background:var(--danger);color:#fff}
+.est-btn-pendiente{border-color:var(--warn);color:var(--warn);background:rgba(245,158,11,.06)}
+.est-btn-pendiente:hover{background:var(--warn);color:#fff}
+.est-pdf-row{margin-top:16px;display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid var(--border)}
+.est-pdf-row label{font-size:13px;color:var(--muted);cursor:pointer;display:flex;align-items:center;gap:6px}
+
+/* ── INFO CARDS ── */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.info-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:var(--r);padding:24px 20px;transition:all .25s}
+.info-card:hover{background:rgba(232,82,26,.1);border-color:rgba(232,82,26,.28);transform:translateY(-3px)}
+.info-card .ic-icon{font-size:32px;margin-bottom:12px}
+.info-card .ic-title{color:#fff;font-weight:700;font-size:16px;margin-bottom:7px}
+.info-card .ic-text{color:rgba(255,255,255,.5);font-size:13px;line-height:1.6}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);color:rgba(255,255,255,.5);padding:44px 20px 28px;text-align:center}
+.footer-brand{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px}
+.footer-logo{width:44px;height:44px;border-radius:50%;border:2px solid var(--fire)}
+.footer-name{font-family:'Fraunces',serif;color:#fff;font-size:20px}
+.footer-links{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.footer-link{color:rgba(255,255,255,.45);font-size:13px;padding:5px 10px;cursor:pointer;transition:color .18s}
+.footer-link:hover{color:var(--fire-lt)}
+.footer-copy{font-size:12px;border-top:1px solid rgba(255,255,255,.07);padding-top:18px}
+.footer-copy strong{color:var(--fire-lt)}
+
+/* ── TOAST ── */
+.toast-wrap{position:fixed;bottom:max(24px,var(--safe-bot));right:20px;z-index:9999;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.toast{background:var(--dark);color:#fff;border-left:4px solid var(--fire);padding:13px 18px;border-radius:12px;font-size:13px;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,.3);max-width:300px;line-height:1.4;display:flex;align-items:flex-start;gap:9px;animation:toastSlide .3s ease}
+.toast.ok{border-left-color:var(--success)}
+.toast.err{border-left-color:var(--danger)}
+@keyframes toastSlide{from{transform:translateX(110%);opacity:0}to{transform:translateX(0);opacity:1}}
+
+/* ── LOADER ── */
+.loader{position:fixed;inset:0;z-index:9999;background:rgba(15,23,42,.94);display:none;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+.loader.show{display:flex}
+.spin{width:52px;height:52px;border:4px solid rgba(255,255,255,.08);border-top-color:var(--fire);border-radius:50%;animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loader p{color:rgba(255,255,255,.65);font-size:14px}
+
+/* ── SKELETON ── */
+.skeleton{background:#e2e8f0;border-radius:var(--r-lg);overflow:hidden;height:380px;position:relative}
+.skeleton::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.5) 50%,transparent 100%);animation:shimmer 1.4s infinite}
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+
+/* ── ACCESO ADMIN ── */
+.admin-trigger{background:none;border:none;color:rgba(255,255,255,.15);font-size:11px;cursor:pointer;padding:4px 8px;transition:color .2s}
+.admin-trigger:hover{color:rgba(255,255,255,.4)}
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader"><div class="spin"></div><p id="loaderTxt">Cargando…</p></div>
+<div class="toast-wrap" id="toasts"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a class="nav-brand" href="#">
+    <img class="nav-logo" src="https://i.postimg.cc/rsVD39sy/Logo_tu_gas.png" alt="Tu Gas"
+      onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22><text y=%2232%22 font-size=%2232%22>🔥</text></svg>'">
+    <span class="nav-title">Tu <em>Gas</em></span>
+  </a>
+  <div class="nav-links">
+    <span class="nav-link" onclick="goto('#productos')">Productos</span>
+    <span class="nav-link" onclick="goto('#nosotros')">Nosotros</span>
+    <span class="nav-link" onclick="goto('#contacto')">Contacto</span>
+  </div>
+  <button class="cart-btn" onclick="toggleCart()" aria-label="Carrito">
+    🛒 <span id="cartBadge" class="cart-badge">0</span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-chip">🔥 Entrega en Macul y comunas aledañas</div>
+    <h1>El Gas que necesitas,<br><em>cuando lo necesitas</em></h1>
+    <p class="hero-sub">Distribuidora oficial Abastible y Gasco. Pedidos online con entrega rápida a tu domicilio en Santiago.</p>
+    <div class="hero-ctas">
+      <button class="btn-fire" onclick="goto('#productos')">🛒 Comprar Ahora</button>
+      <button class="btn-ghost" onclick="wa()">📲 WhatsApp</button>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">500+</div><div class="stat-lbl">Clientes felices</div></div>
+      <div><div class="stat-num">2</div><div class="stat-lbl">Marcas líderes</div></div>
+      <div><div class="stat-num">7</div><div class="stat-lbl">Tamaños</div></div>
+      <div><div class="stat-num">24h</div><div class="stat-lbl">Entrega rápida</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="section sec-white" id="productos">
+  <div class="container">
+    <div class="sec-head">
+      <h2>Nuestros <span class="accent">Productos</span></h2>
+      <p>Cilindros de gas licuado certificados. Elige tu marca y tamaño.</p>
+    </div>
+    <div class="tabs">
+      <button class="tab tab-ab active" onclick="filtrar('Abastible',this)">🔴 Abastible</button>
+      <button class="tab tab-gs" onclick="filtrar('Gasco',this)">🔵 Gasco</button>
+      <button class="tab tab-all" onclick="filtrar('Todos',this)">🔘 Todos</button>
+    </div>
+    <div class="grid" id="productsGrid">
+      <div class="skeleton"></div><div class="skeleton"></div>
+      <div class="skeleton"></div><div class="skeleton"></div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section class="section sec-dark" id="nosotros">
+  <div class="container">
+    <div class="sec-head"><h2>¿Por qué elegirnos?</h2><p>Años llevando energía a hogares de Santiago.</p></div>
+    <div class="info-grid">
+      <div class="info-card"><div class="ic-icon">⚡</div><div class="ic-title">Entrega Rápida</div><div class="ic-text">Despacho en el día en Macul y comunas cercanas.</div></div>
+      <div class="info-card"><div class="ic-icon">🛡️</div><div class="ic-title">Cilindros Certificados</div><div class="ic-text">Productos oficiales Abastible y Gasco con certificación vigente.</div></div>
+      <div class="info-card"><div class="ic-icon">💳</div><div class="ic-title">Múltiples Pagos</div><div class="ic-text">Efectivo, transferencia, débito o pago al recibir.</div></div>
+      <div class="info-card"><div class="ic-icon">📲</div><div class="ic-title">Soporte WhatsApp</div><div class="ic-text">Seguimiento de tu pedido en tiempo real.</div></div>
+      <div class="info-card"><div class="ic-icon">🔖</div><div class="ic-title">Descuentos Exclusivos</div><div class="ic-text">Cupones y promociones para clientes frecuentes.</div></div>
+      <div class="info-card"><div class="ic-icon">📄</div><div class="ic-title">Comprobante Digital</div><div class="ic-text">Recibe tu comprobante PDF por correo al confirmar.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="section sec-white" id="contacto">
+  <div class="container" style="max-width:680px">
+    <div class="sec-head"><h2>📍 <span class="accent">Contáctanos</span></h2><p>Estamos en Macul, Santiago.</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px">
+      <div style="background:var(--surface);border-radius:14px;padding:22px;text-align:center">
+        <div style="font-size:32px;margin-bottom:8px">📍</div>
+        <div style="font-weight:700;margin-bottom:5px">Dirección</div>
+        <div style="color:var(--muted);font-size:13px;line-height:1.5">Alejandro Ávalos Davidson 2059, Macul, Santiago</div>
+      </div>
+      <div style="background:var(--surface);border-radius:14px;padding:22px;text-align:center">
+        <div style="font-size:32px;margin-bottom:8px">📞</div>
+        <div style="font-weight:700;margin-bottom:5px">Teléfono / WhatsApp</div>
+        <div style="color:var(--muted);font-size:13px">+56 961830331</div>
+      </div>
+    </div>
+    <div style="text-align:center;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <button class="btn-fire" onclick="wa()">📲 WhatsApp</button>
+      <button class="btn-ghost" style="color:var(--text);border-color:var(--border)" onclick="abrirMapa()">🗺️ Cómo llegar</button>
+      <button class="btn-ghost" style="color:var(--text);border-color:var(--border)" onclick="location.href='mailto:distribuidoratugas@gmail.com'">✉️ Email</button>
+    </div>
+    <!-- Mapa embebido -->
+    <div style="margin-top:28px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.5!2d-70.6167!3d-33.4833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDI5JzAwLjAiUyA3MMKwMzcnMDAuMCJX!5e0!3m2!1ses!2scl!4v1234567890"
+        width="100%" height="260" style="border:0;display:block" allowfullscreen loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <img class="footer-logo" src="https://i.postimg.cc/rsVD39sy/Logo_tu_gas.png" alt="Tu Gas" onerror="this.style.display='none'">
+    <span class="footer-name">Tu Gas</span>
+  </div>
+  <div class="footer-links">
+    <span class="footer-link" onclick="goto('#productos')">Productos</span>
+    <span class="footer-link" onclick="goto('#nosotros')">Nosotros</span>
+    <span class="footer-link" onclick="goto('#contacto')">Contacto</span>
+  </div>
+  <div class="footer-copy">© 2025 <strong>Tu Gas</strong> — Distribuidora de Gas Licuado, Santiago.<br>Alejandro Ávalos Davidson 2059, Macul · +56 961830331</div>
+  <!-- Acceso admin discreto: click 5 veces -->
+  <div style="margin-top:12px">
+    <button class="admin-trigger" onclick="adminClick()" title="">· · ·</button>
+  </div>
+</footer>
+
+<!-- CARRITO DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCartOutside(event)">
+  <div class="cart-drawer">
+    <div class="drawer-head">
+      <h3>🛒 Tu Carrito</h3>
+      <button class="drawer-close" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="drawer-items" id="drawerItems">
+      <div class="cart-empty-msg" id="cartEmpty">
+        <div class="ei">🛒</div>
+        <p style="font-weight:700;margin-bottom:6px">Tu carrito está vacío</p>
+        <p style="font-size:13px">Agrega productos para comenzar</p>
+      </div>
+    </div>
+    <div class="drawer-disc" id="drawerDisc" style="display:none">
+      <div id="discFormWrap">
+        <div class="disc-row">
+          <input class="disc-inp" id="discInp" type="text" placeholder="Código de descuento" onkeydown="if(event.key==='Enter')applyDisc()">
+          <button class="disc-apply" onclick="applyDisc()">Aplicar</button>
+        </div>
+        <p class="disc-msg" id="discMsg"></p>
+      </div>
+      <div id="discApplied" style="display:none">
+        <div class="disc-applied">
+          <span>🏷️ <span id="discLbl"></span></span>
+          <button class="disc-rm" onclick="removeDisc()">✕</button>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-foot" id="drawerFoot" style="display:none">
+      <div class="totals-grid">
+        <div class="tot-line"><span>Subtotal</span><span id="totSubtotal">$0</span></div>
+        <div class="tot-line disc-line" id="discRow" style="display:none">
+          <span id="discRowLbl">Descuento</span><span id="discRowAmt"></span>
+        </div>
+        <div class="tot-line" id="valesRow" style="display:none;color:var(--warn)">
+          <span>🎟️ Cargo Vales</span><span>+$500</span>
+        </div>
+        <div class="tot-line main"><span>Total</span><span id="totTotal">$0</span></div>
+      </div>
+      <button class="checkout-btn" onclick="openCheckout()">Finalizar Compra →</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL CHECKOUT -->
+<div class="modal-back" id="modalBack">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>📦 Finalizar Pedido</h3>
+      <button class="modal-x" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="checkoutForm">
+      <div class="order-mini">
+        <h4>Resumen del pedido</h4>
+        <div id="miniItems"></div>
+        <div class="mini-total"><span>Total</span><span id="miniTotal">$0</span></div>
+      </div>
+      <div class="form-2col">
+        <div class="form-grp"><label class="form-lbl">Nombre *</label><input class="form-inp" id="fNombre" type="text" placeholder="María González" autocomplete="name"></div>
+        <div class="form-grp"><label class="form-lbl">Teléfono *</label><input class="form-inp" id="fTel" type="tel" placeholder="+56 9 1234 5678" autocomplete="tel"></div>
+      </div>
+      <div class="form-grp"><label class="form-lbl">Email (para comprobante)</label><input class="form-inp" id="fEmail" type="email" placeholder="tu@email.com" autocomplete="email"></div>
+      <div class="form-grp"><label class="form-lbl">Dirección de entrega *</label><input class="form-inp" id="fDir" type="text" placeholder="Calle 123, Dpto 4B, Macul" autocomplete="street-address"></div>
+      <div class="form-grp">
+        <label class="form-lbl">Método de pago *</label>
+        <div class="pago-grid">
+          <div class="pago-opt"><input type="radio" name="pago" id="pEfectivo" value="Efectivo" checked><label class="pago-lbl" for="pEfectivo">💵 Efectivo</label></div>
+          <div class="pago-opt"><input type="radio" name="pago" id="pTransf" value="Transferencia" onchange="actualizarCargoVales()"><label class="pago-lbl" for="pTransf">🏦 Transferencia</label></div>
+          <div class="pago-opt"><input type="radio" name="pago" id="pVales" value="Vales" onchange="actualizarCargoVales()"><label class="pago-lbl" for="pVales">🎟️ Vales <span style="font-size:11px;color:var(--warn)">(+$500)</span></label></div>
+          <div class="pago-opt"><input type="radio" name="pago" id="pAlRecibir" value="Pago al recibir" onchange="actualizarCargoVales()"><label class="pago-lbl" for="pAlRecibir">📦 Al recibir</label></div>
+        </div>
+      </div>
+      <div class="form-grp"><label class="form-lbl">Observaciones</label><textarea class="form-ta" id="fObs" placeholder="Instrucciones de entrega, timbre, etc."></textarea></div>
+      <button class="submit-btn" onclick="confirmOrder()">✅ Confirmar Pedido</button>
+    </div>
+    <div class="confirm-screen" id="confirmScreen" style="display:none">
+      <div class="confirm-icon">🎉</div>
+      <h3>¡Pedido Confirmado!</h3>
+      <p>Tu número de pedido es:</p>
+      <div class="confirm-id" id="confirmID">—</div>
+      <p>Recibirás un correo con tu comprobante y notificaciones de estado.</p>
+      <p style="margin-top:10px;font-size:12px;color:#94a3b8">Seguimiento también por WhatsApp:</p>
+      <button class="btn-fire" style="margin-top:18px" onclick="waConfirm()">📲 Seguir por WhatsApp</button>
+      <br><br>
+      <button class="btn-ghost" style="color:var(--text);border-color:var(--border)" onclick="closeModal()">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL CAMBIO DE ESTADO -->
+<div class="estado-modal-back" id="estadoModalBack">
+  <div class="estado-modal">
+    <div class="estado-modal-head">
+      <h3>🔧 Gestionar Pedido</h3>
+      <button class="modal-x" onclick="cerrarEstadoModal()">✕</button>
+    </div>
+    <div class="estado-modal-body">
+      <div class="form-grp">
+        <label class="form-lbl">N° de Pedido</label>
+        <input class="form-inp" id="adminPedidoID" type="text" placeholder="PED010725-00003"
+          style="text-transform:uppercase" oninput="this.value=this.value.toUpperCase()">
+        <button class="disc-apply" style="margin-top:8px;width:100%;padding:11px" onclick="buscarPedidoAdmin()">🔍 Buscar</button>
+      </div>
+      <div class="estado-info" id="estadoInfo" style="display:none"></div>
+      <div id="estadoBtns" style="display:none">
+        <p style="font-size:12px;color:var(--muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;font-weight:700">Cambiar estado a:</p>
+        <div class="estado-btns">
+          <button class="est-btn est-btn-camino"   onclick="cambiarEstado('En camino')">🚚 En camino</button>
+          <button class="est-btn est-btn-entregado" onclick="cambiarEstado('Entregado')">✅ Entregado</button>
+          <button class="est-btn est-btn-cancelado" onclick="cambiarEstado('Cancelado')">❌ Cancelado</button>
+          <button class="est-btn est-btn-pendiente" onclick="cambiarEstado('Pendiente')">🟡 Pendiente</button>
+        </div>
+        <div class="est-pdf-row">
+          <input type="checkbox" id="enviarPDF" checked>
+          <label for="enviarPDF">Enviar también comprobante PDF al cliente</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════════════════
+// ⚠️  ÚNICA LÍNEA QUE DEBES EDITAR:
+//     Pega aquí la URL de tu Google Apps Script desplegado como
+//     "Web App" (Implementar → Nueva implementación → Tipo: App web)
+// ══════════════════════════════════════════════════════════════════
+var GAS_URL = 'https://script.google.com/macros/s/AKfycbz9F_MdYhsklzDTT-aMcIRjWxEwlKC6LK3Sf-BuyQK2BnYYep62-tWEtgwMmi44sb8C/exec';
+// Token desactivado temporalmente — reactivar cuando el sistema esté estable
+
+// ══════════════════════════════════════════════════════════════════
+// HELPER: reemplaza todos los google.script.run
+// ══════════════════════════════════════════════════════════════════
+function gasCall(accion, params) {
+  var body = Object.assign({ accion: accion }, params || {});
+  return fetch(GAS_URL, {
+    method: 'POST',
+    mode: 'cors',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(body)
+  })
+  .then(function(r) { return r.json(); })
+  .catch(function(e) { return { ok: false, error: e.message }; });
+}
+
+// ══════════════════════════════════════════════════════════════════
+// ESTADO GLOBAL
+// ══════════════════════════════════════════════════════════════════
+var catalogo    = {};
+var inventario  = {};
+var carrito     = [];
+var descuento   = null;
+var filtroMarca = 'Abastible';
+var pedidoIDConfirmado = '';
+var adminClicks = 0, adminTimer = null;
+var pedidoAdminActual = null;
+
+// ══════════════════════════════════════════════════════════════════
+// INIT — reemplaza el google.script.run del DOMContentLoaded
+// ══════════════════════════════════════════════════════════════════
+window.addEventListener('DOMContentLoaded', function() {
+  showLoader(true,'Cargando productos…');
+  gasCall('getCatalogo')
+    .then(function(cat) {
+      catalogo = cat;
+      return gasCall('getInventario');
+    })
+    .then(function(inv) {
+      inventario = inv;
+      showLoader(false);
+      renderProducts();
+    })
+    .catch(function(e) {
+      showLoader(false);
+      toast('Error al cargar: ' + e, 'err');
+    });
+});
+
+// ══════════════════════════════════════════════════════════════════
+// RENDER PRODUCTOS (sin cambios vs original)
+// ══════════════════════════════════════════════════════════════════
+function renderProducts() {
+  var grid   = document.getElementById('productsGrid');
+  var marcas = filtroMarca==='Todos' ? Object.keys(catalogo) : [filtroMarca];
+  grid.innerHTML = '';
+  var hayItems = false;
+
+  marcas.forEach(function(marca) {
+    if (!catalogo[marca]) return;
+    var kgs = Object.keys(catalogo[marca]).sort(function(a,b){ return parseInt(b)-parseInt(a); });
+
+    kgs.forEach(function(kg) {
+      var prod   = catalogo[marca][kg];
+      var kgN    = parseInt(kg);
+      var stock  = (inventario[marca] && inventario[marca][kgN]!==undefined)
+                   ? parseInt(inventario[marca][kgN]) : 0;
+      var isAb   = marca==='Abastible';
+      var cls    = isAb?'ab':'gs';
+      var sinStk = stock<=0;
+      var marcaL = isAb?'ABASTIBLE':'GASCO';
+      var qtyId  = 'qty_'+marca+'_'+kgN;
+
+      var badge = '';
+      if (kgN===15) badge='<div class="card-badge">⭐ Popular</div>';
+      if (kgN===45) badge='<div class="card-badge" style="background:#E8521A">🏭 Industrial</div>';
+
+      var imgUrl  = prod.imagen||'';
+      var imgHtml = imgUrl
+        ? '<img class="card-img" src="'+imgUrl+'" alt="'+prod.nombre+'" loading="lazy" decoding="async"'
+          +' onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'
+          +'<div class="card-img-fallback" style="display:none"><div class="kg">'+kgN+'</div><div class="kg-lbl">KILOGRAMOS</div></div>'
+        : '<div class="card-img-fallback"><div class="kg">'+kgN+'</div><div class="kg-lbl">KILOGRAMOS</div></div>';
+
+      var descHtml = prod.descripcion
+        ? '<p class="card-desc">'+prod.descripcion+'</p>' : '';
+
+      var dispHtml = sinStk
+        ? '<div style="font-size:12px;color:var(--danger);font-weight:600;margin-bottom:14px">⛔ Sin stock disponible</div>'
+        : '<div style="font-size:12px;color:var(--success);font-weight:600;margin-bottom:14px">✅ Disponible</div>';
+
+      var card = '<div class="card" data-id="'+prod.id+'">'
+        +'<div class="card-img-wrap '+cls+'">'
+        +imgHtml+badge
+        +'<div class="card-marca-logo">'+marcaL+'</div>'
+        +'</div>'
+        +'<div class="card-body">'
+        +'<div class="card-name">'+prod.nombre+'</div>'
+        +descHtml
+        +'<div class="card-price">$'+parseInt(prod.precio).toLocaleString('es-CL')+'</div>'
+        +'<div class="card-price-sub">Precio por cilindro · CLP</div>'
+        +dispHtml
+        +'<div class="qty-row">'
+        +'<button class="qty-btn" onclick="changeQty(\''+qtyId+'\',-1)" '+(sinStk?'disabled':'')+'>−</button>'
+        +'<input class="qty-inp" id="'+qtyId+'" type="number" value="1" min="1" max="'+(stock||1)+'">'
+        +'<button class="qty-btn" onclick="changeQty(\''+qtyId+'\',1)" '+(sinStk?'disabled':'')+'>+</button>'
+        +'</div>'
+        +'<button class="add-btn" onclick="addToCart(\''+marca+'\','+kgN+')" '+(sinStk?'disabled':'')+'>'+
+        (sinStk?'⛔ Sin stock':'🛒 Agregar al carrito')
+        +'</button>'
+        +'</div></div>';
+
+      grid.innerHTML += card;
+      hayItems = true;
+    });
+  });
+
+  if (!hayItems) {
+    grid.innerHTML='<div style="text-align:center;color:var(--muted);padding:60px 20px;grid-column:1/-1">'
+      +'<div style="font-size:48px;margin-bottom:12px">📦</div>'
+      +'<p style="font-size:16px;font-weight:600">No hay productos disponibles.</p></div>';
+  }
+}
+
+function filtrar(marca, btn) {
+  filtroMarca = marca;
+  document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
+  btn.classList.add('active');
+  renderProducts();
+}
+
+function changeQty(id, d) {
+  var inp=document.getElementById(id);
+  if(!inp)return;
+  var v=Math.max(1,Math.min(parseInt(inp.max)||99,parseInt(inp.value||1)+d));
+  inp.value=v;
+}
+
+// ══════════════════════════════════════════════════════════════════
+// CARRITO (sin cambios vs original)
+// ══════════════════════════════════════════════════════════════════
+function addToCart(marca, kg) {
+  var prod=catalogo[marca]&&catalogo[marca][kg];
+  if(!prod)return;
+  var stock=(inventario[marca]&&inventario[marca][kg]!==undefined)?parseInt(inventario[marca][kg]):0;
+  var qty=parseInt(document.getElementById('qty_'+marca+'_'+kg)?.value||1);
+  var existente=carrito.find(function(i){return i.marca===marca&&i.kg===kg;});
+  var enCarrito=existente?existente.cantidad:0;
+
+  if(qty+enCarrito>stock){ toast('Stock insuficiente para esa cantidad','err'); return; }
+
+  if(existente){
+    existente.cantidad+=qty;
+    existente.subtotal=existente.cantidad*existente.precioUnit;
+  } else {
+    carrito.push({marca:marca,kg:kg,nombre:prod.nombre,precioUnit:parseInt(prod.precio),
+                  cantidad:qty,subtotal:qty*parseInt(prod.precio),imagen:prod.imagen||''});
+  }
+
+  renderCart();
+  updateBadge();
+  var badge=document.getElementById('cartBadge');
+  badge.classList.remove('bump');
+  void badge.offsetWidth;
+  badge.classList.add('bump');
+  setTimeout(function(){badge.classList.remove('bump');},350);
+  toast('✅ '+prod.nombre+' agregado','ok');
+}
+
+function renderCart() {
+  var cont=document.getElementById('drawerItems');
+  var empty=document.getElementById('cartEmpty');
+  var foot=document.getElementById('drawerFoot');
+  var disc=document.getElementById('drawerDisc');
+
+  if(carrito.length===0){
+    cont.innerHTML='';
+    cont.appendChild(empty);
+    empty.style.display='block';
+    foot.style.display='none';
+    disc.style.display='none';
+    descuento=null;
+    return;
+  }
+  empty.style.display='none';
+  foot.style.display='block';
+  disc.style.display='block';
+
+  var html='';
+  carrito.forEach(function(item,idx){
+    var cls=item.marca==='Abastible'?'ab':'gs';
+    var iconC=item.imagen?'<img src="'+item.imagen+'" onerror="this.style.display=\'none\'">':'🔥';
+    html+='<div class="cart-item">'
+      +'<div class="ci-icon '+cls+'">'+iconC+'</div>'
+      +'<div class="ci-name">'+item.nombre+'</div>'
+      +'<div class="ci-subtotal">$'+item.subtotal.toLocaleString('es-CL')+'</div>'
+      +'<div class="ci-price-unit">'
+      +'<span>$'+item.precioUnit.toLocaleString('es-CL')+' c/u</span>'
+      +'<div class="ci-controls">'
+      +'<button class="ci-qty-btn" onclick="itemQty('+idx+',-1)">−</button>'
+      +'<span class="ci-qty-num">'+item.cantidad+'</span>'
+      +'<button class="ci-qty-btn" onclick="itemQty('+idx+',1)">+</button>'
+      +'<button class="ci-del" onclick="removeItem('+idx+')">🗑</button>'
+      +'</div></div>'
+      +'</div>';
+  });
+  cont.innerHTML=html;
+  updateTotals();
+}
+
+function itemQty(idx,d){
+  var item=carrito[idx];
+  if(!item)return;
+  var stock=(inventario[item.marca]&&inventario[item.marca][item.kg]!==undefined)
+             ?parseInt(inventario[item.marca][item.kg]):999;
+  item.cantidad=Math.max(1,Math.min(stock,item.cantidad+d));
+  item.subtotal=item.cantidad*item.precioUnit;
+  renderCart();updateBadge();
+}
+
+function removeItem(idx){
+  carrito.splice(idx,1);
+  if(!carrito.length)descuento=null;
+  renderCart();updateBadge();
+}
+
+function updateBadge(){
+  document.getElementById('cartBadge').textContent=carrito.reduce(function(s,i){return s+i.cantidad;},0);
+}
+
+function updateTotals(){
+  var subtotal=carrito.reduce(function(s,i){return s+i.subtotal;},0);
+  var descAmt=0;
+  if(descuento){descAmt=descuento.tipo==='porcentaje'?Math.round(subtotal*descuento.valor/100):descuento.valor;}
+  var pagoSel=document.querySelector('input[name="pago"]:checked');
+  var cargoVales=(pagoSel&&pagoSel.value==='Vales')?500:0;
+  var total=subtotal-descAmt+cargoVales;
+  document.getElementById('totSubtotal').textContent='$'+subtotal.toLocaleString('es-CL');
+  document.getElementById('totTotal').textContent='$'+total.toLocaleString('es-CL');
+  var dr=document.getElementById('discRow');
+  if(descAmt>0){
+    dr.style.display='flex';
+    document.getElementById('discRowLbl').textContent='🏷️ '+(descuento.descripcion||'Descuento');
+    document.getElementById('discRowAmt').textContent='-$'+descAmt.toLocaleString('es-CL');
+  } else {dr.style.display='none';}
+  var vr=document.getElementById('valesRow');
+  if(vr) vr.style.display=cargoVales?'flex':'none';
+}
+
+// ══════════════════════════════════════════════════════════════════
+// DESCUENTO — reemplaza google.script.run.validarDescuento
+// ══════════════════════════════════════════════════════════════════
+function applyDisc(){
+  var codigo=document.getElementById('discInp').value.trim();
+  if(!codigo)return;
+  gasCall('validarDescuento', { codigo: codigo })
+    .then(function(res){
+      if(res.ok){
+        descuento=res.descuento; descuento.codigo=codigo;
+        document.getElementById('discFormWrap').style.display='none';
+        document.getElementById('discApplied').style.display='block';
+        document.getElementById('discLbl').textContent=res.descuento.descripcion;
+        document.getElementById('discMsg').textContent='';
+        updateTotals(); toast('✅ '+res.descuento.descripcion,'ok');
+      } else {
+        var m=document.getElementById('discMsg');
+        m.className='disc-msg err'; m.textContent='❌ '+res.error;
+      }
+    })
+    .catch(function(){ toast('Error al validar código','err'); });
+}
+
+function removeDisc(){
+  descuento=null;
+  document.getElementById('discFormWrap').style.display='block';
+  document.getElementById('discApplied').style.display='none';
+  document.getElementById('discInp').value='';
+  document.getElementById('discMsg').textContent='';
+  updateTotals();
+}
+
+// ══════════════════════════════════════════════════════════════════
+// CHECKOUT — reemplaza google.script.run.crearPedido
+// ══════════════════════════════════════════════════════════════════
+function actualizarCargoVales(){
+  updateTotals();
+  // También actualizar el resumen del modal si está abierto
+  var pagoSel=document.querySelector('input[name="pago"]:checked');
+  var cargoVales=(pagoSel&&pagoSel.value==='Vales')?500:0;
+  var vr=document.getElementById('valesRowModal');
+  if(vr) vr.style.display=cargoVales?'block':'none';
+}
+
+function openCheckout(){
+  if(!carrito.length){toast('Tu carrito está vacío','err');return;}
+  var subtotal=carrito.reduce(function(s,i){return s+i.subtotal;},0);
+  var descAmt=descuento?(descuento.tipo==='porcentaje'?Math.round(subtotal*descuento.valor/100):descuento.valor):0;
+  var pagoSel=document.querySelector('input[name="pago"]:checked');
+  var cargoVales=(pagoSel&&pagoSel.value==='Vales')?500:0;
+  var total=subtotal-descAmt+cargoVales;
+  var mH=carrito.map(function(i){return '<div class="mini-item"><span>'+i.nombre+' ×'+i.cantidad+'</span><span>$'+i.subtotal.toLocaleString('es-CL')+'</span></div>';}).join('');
+  if(descAmt>0)mH+='<div class="mini-item" style="color:var(--success)"><span>Descuento</span><span>-$'+descAmt.toLocaleString('es-CL')+'</span></div>';
+  if(cargoVales)mH+='<div class="mini-item" style="color:var(--warn)"><span>🎟️ Cargo Vales</span><span>+$500</span></div>';
+  document.getElementById('miniItems').innerHTML=mH;
+  document.getElementById('miniTotal').textContent='$'+total.toLocaleString('es-CL')+' CLP';
+  document.getElementById('checkoutForm').style.display='block';
+  document.getElementById('confirmScreen').style.display='none';
+  document.getElementById('modalBack').classList.add('open');
+  document.getElementById('cartOverlay').classList.remove('open');
+}
+
+function closeModal(){ document.getElementById('modalBack').classList.remove('open'); }
+
+function confirmOrder(){
+  var nombre=document.getElementById('fNombre').value.trim();
+  var tel=document.getElementById('fTel').value.trim();
+  var email=document.getElementById('fEmail').value.trim();
+  var dir=document.getElementById('fDir').value.trim();
+  var pago=document.querySelector('input[name="pago"]:checked');
+  var obs=document.getElementById('fObs').value.trim();
+  if(!nombre||!tel||!dir){toast('Nombre, teléfono y dirección son obligatorios','err');return;}
+  var subtotal=carrito.reduce(function(s,i){return s+i.subtotal;},0);
+  var descAmt=descuento?(descuento.tipo==='porcentaje'?Math.round(subtotal*descuento.valor/100):descuento.valor):0;
+  var metodoPago=pago?pago.value:'Efectivo';
+  var cargoVales=(metodoPago==='Vales')?500:0;
+  var totalFinal=subtotal-descAmt+cargoVales;
+  var payload={
+    nombre:nombre,email:email,telefono:tel,direccion:dir,
+    metodoPago:metodoPago,observaciones:obs,
+    items:carrito.map(function(i){return {marca:i.marca,kg:i.kg,nombre:i.nombre,precioUnit:i.precioUnit,cantidad:i.cantidad,subtotal:i.subtotal};}),
+    subtotal:subtotal,descuento:descAmt,
+    cargoVales:cargoVales,
+    total:totalFinal,
+    tipoDescuento:descuento?descuento.descripcion:'',
+    codigoDescuento:descuento?(descuento.codigo||''):''
+  };
+  showLoader(true,'Procesando tu pedido…');
+  gasCall('crearPedido', { payload: payload })
+    .then(function(res){
+      showLoader(false);
+      if(res.ok){
+        pedidoIDConfirmado=res.pedidoID;
+        document.getElementById('confirmID').textContent=res.pedidoID;
+        document.getElementById('checkoutForm').style.display='none';
+        document.getElementById('confirmScreen').style.display='block';
+        carrito=[];descuento=null;
+        renderCart();updateBadge();
+        toast('🎉 Pedido '+res.pedidoID+' confirmado','ok');
+        gasCall('getInventario').then(function(inv){inventario=inv;renderProducts();});
+      } else {
+        toast('Error: '+(res.error||'Inténtalo de nuevo'),'err');
+      }
+    })
+    .catch(function(e){showLoader(false);toast('Error de conexión: '+e,'err');});
+}
+
+function waConfirm(){
+  window.open('https://wa.me/56961830331?text='+encodeURIComponent('Hola, quiero seguimiento de mi pedido '+pedidoIDConfirmado),'_blank');
+}
+
+// ══════════════════════════════════════════════════════════════════
+// PANEL ADMIN — reemplaza google.script.run del panel de estado
+// ══════════════════════════════════════════════════════════════════
+function adminClick(){
+  adminClicks++;
+  clearTimeout(adminTimer);
+  adminTimer=setTimeout(function(){adminClicks=0;},2000);
+  if(adminClicks>=5){ adminClicks=0; abrirEstadoModal(); }
+}
+
+function abrirEstadoModal(){
+  document.getElementById('estadoModalBack').classList.add('open');
+  document.getElementById('estadoInfo').style.display='none';
+  document.getElementById('estadoBtns').style.display='none';
+  document.getElementById('adminPedidoID').value='';
+  pedidoAdminActual=null;
+}
+
+function cerrarEstadoModal(){
+  document.getElementById('estadoModalBack').classList.remove('open');
+}
+
+function buscarPedidoAdmin(){
+  var id=document.getElementById('adminPedidoID').value.trim().toUpperCase();
+  if(!id){toast('Ingresa un número de pedido','err');return;}
+  showLoader(true,'Buscando pedido…');
+  gasCall('getPedidoPorID', { pedidoID: id })
+    .then(function(pedido){
+      showLoader(false);
+      if(!pedido){toast('Pedido no encontrado','err');return;}
+      pedidoAdminActual=pedido;
+      var estadoColor={Pendiente:'#856404','En camino':'#0C5460',Entregado:'#155724',Cancelado:'#721C24'};
+      var estadoBg={Pendiente:'#FFF3CD','En camino':'#D1ECF1',Entregado:'#D4EDDA',Cancelado:'#F8D7DA'};
+      var est=pedido['Estado']||'';
+      var infoEl=document.getElementById('estadoInfo');
+      infoEl.style.display='block';
+      infoEl.innerHTML='<strong>Pedido:</strong> '+id+'<br>'
+        +'<strong>Cliente:</strong> '+(pedido['Nombre Cliente']||'')+'<br>'
+        +'<strong>Teléfono:</strong> '+(pedido['Teléfono']||'')+'<br>'
+        +'<strong>Dirección:</strong> '+(pedido['Dirección']||'')+'<br>'
+        +'<strong>Estado actual:</strong> <span style="background:'+(estadoBg[est]||'#eee')+';color:'+(estadoColor[est]||'#333')
+        +';padding:2px 10px;border-radius:20px;font-weight:700">'+(est||'—')+'</span>';
+      document.getElementById('estadoBtns').style.display='block';
+    })
+    .catch(function(e){showLoader(false);toast('Error: '+e,'err');});
+}
+
+function cambiarEstado(nuevoEstado){
+  if(!pedidoAdminActual){toast('Busca un pedido primero','err');return;}
+  var id=document.getElementById('adminPedidoID').value.trim().toUpperCase();
+  var enviarPDF=document.getElementById('enviarPDF').checked;
+  showLoader(true,'Actualizando estado…');
+  gasCall('actualizarEstadoConPDF', { pedidoID: id, nuevoEstado: nuevoEstado, enviarPDF: enviarPDF })
+    .then(function(res){
+      showLoader(false);
+      if(res.ok){
+        toast('✅ Estado cambiado a "'+nuevoEstado+'"','ok');
+        cerrarEstadoModal();
+      } else {
+        toast('Error: '+(res.error||'Inténtalo de nuevo'),'err');
+      }
+    })
+    .catch(function(e){showLoader(false);toast('Error: '+e,'err');});
+}
+
+// ══════════════════════════════════════════════════════════════════
+// HELPERS UI (sin cambios vs original)
+// ══════════════════════════════════════════════════════════════════
+function toggleCart(){ document.getElementById('cartOverlay').classList.toggle('open'); }
+function closeCartOutside(e){ if(e.target===document.getElementById('cartOverlay'))toggleCart(); }
+function goto(sel){ var el=document.querySelector(sel); if(el)el.scrollIntoView({behavior:'smooth',block:'start'}); }
+function wa(){ window.open('https://wa.me/56961830331?text='+encodeURIComponent('Hola, me gustaría hacer un pedido de gas.'),'_blank'); }
+
+// Abre el mapa nativo según el dispositivo
+function abrirMapa(){
+  var dir = encodeURIComponent('Alejandro Ávalos Davidson 2059, Macul, Santiago, Chile');
+  var ua  = navigator.userAgent.toLowerCase();
+  var url;
+  if (/iphone|ipad|ipod/.test(ua)) {
+    // iOS → Apple Maps
+    url = 'maps://maps.apple.com/?q=' + dir;
+  } else if (/android/.test(ua)) {
+    // Android → Google Maps app
+    url = 'geo:0,0?q=' + dir;
+  } else {
+    // Escritorio → Google Maps web
+    url = 'https://www.google.com/maps/search/?api=1&query=' + dir;
+  }
+  window.open(url, '_blank');
+}
+
+function showLoader(show,txt){
+  var l=document.getElementById('loader');
+  l.classList.toggle('show',show);
+  if(txt)document.getElementById('loaderTxt').textContent=txt;
+}
+
+function toast(msg,tipo){
+  var w=document.getElementById('toasts');
+  var d=document.createElement('div');
+  d.className='toast '+(tipo||'');
+  d.innerHTML=(tipo==='ok'?'✅':tipo==='err'?'❌':'ℹ️')+' <span>'+msg+'</span>';
+  w.appendChild(d);
+  setTimeout(function(){d.style.opacity='0';d.style.transition='opacity .4s';setTimeout(function(){d.remove();},400);},3600);
+}
+
+/*
+ * ══════════════════════════════════════════════════════════════════
+ * NOTA SOBRE CORS:
+ * Google Apps Script devuelve los headers CORS correctos cuando
+ * el script está desplegado con acceso "Cualquier usuario (incluso
+ * anónimo)". Si ves errores CORS en la consola del navegador:
+ *
+ * 1. Verifica que en la implementación de Apps Script pusiste:
+ *    - Ejecutar como: Yo (tu cuenta Google)
+ *    - Quién tiene acceso: Cualquier usuario
+ *
+ * 2. Haz una NUEVA implementación (no editar la existente).
+ *    Cada vez que edites el código debes crear una nueva versión.
+ *
+ * 3. El Content-Type 'text/plain;charset=utf-8' evita el "preflight"
+ *    OPTIONS, que es la fuente más común de errores CORS con GAS.
+ * ══════════════════════════════════════════════════════════════════
+ */
+</script>
+</body>
+</html>
